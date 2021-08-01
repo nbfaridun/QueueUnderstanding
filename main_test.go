@@ -2,25 +2,57 @@ package main
 
 import "testing"
 
-func TestList_remove(t *testing.T) {
-	type fields struct {
-		begin  *ListNode
-		end    *ListNode
-		length int
+func TestRemoveFirstElement(t *testing.T) {
+	queue := List{}
+
+	// Добавление 5 человек
+	person := ListNode{
+		Prev:      nil,
+		Name:      "Surush",
+		Purchases: 150,
+		Next:      nil,
 	}
-	tests := []struct {
-		name   string
-		fields fields
-	}{
-		// TODO: Add test cases.
+	queue.Add(person)
+
+	person = ListNode{
+		Prev:      nil,
+		Name:      "Azam",
+		Purchases: 100,
+		Next:      nil,
 	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			to := &List{
-				begin:  tt.fields.begin,
-				end:    tt.fields.end,
-				length: tt.fields.length,
-			}
-		})
+	queue.Add(person)
+
+	person = ListNode{
+		Prev:      nil,
+		Name:      "Raboni",
+		Purchases: 120,
+		Next:      nil,
+	}
+	queue.Add(person)
+
+	person = ListNode{
+		Prev:      nil,
+		Name:      "Faridun",
+		Purchases: 50,
+		Next:      nil,
+	}
+	queue.Add(person)
+
+	person = ListNode{
+		Prev:      nil,
+		Name:      "Aliakbar",
+		Purchases: 200,
+		Next:      nil,
+	}
+	queue.Add(person)
+
+	k := queue.length
+
+	queue.removeFirstPerson()
+
+	if k - queue.length != 1 {
+		want := k - 1
+		got := queue.length
+		t.Errorf("method len() in Method( add ) is not coorect for empty queue got %d want %d\n", got, want)
 	}
 }
