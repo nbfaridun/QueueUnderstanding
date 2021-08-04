@@ -2,7 +2,7 @@ package main
 
 import "testing"
 
-func TestRemoveFirstElement(t *testing.T) {
+func TestRemoveFirstAndLastElement(t *testing.T) {
 	queue := List{}
 
 	// Добавление 5 человек
@@ -51,6 +51,14 @@ func TestRemoveFirstElement(t *testing.T) {
 	queue.removeFirstPerson()
 
 	if k - queue.length != 1 {
+		want := k - 1
+		got := queue.length
+		t.Errorf("method len() in Method( add ) is not coorect for empty queue got %d want %d\n", got, want)
+	}
+
+	queue.removeLastPerson()
+
+	if k - queue.length != 2 {
 		want := k - 1
 		got := queue.length
 		t.Errorf("method len() in Method( add ) is not coorect for empty queue got %d want %d\n", got, want)
