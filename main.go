@@ -46,6 +46,10 @@ func (to *List) Add(node ListNode) {
 func (to *List) removeFirstPerson() {
 	fmt.Printf("\n\nRemoving First Person From Queue...\nDONE!\n\n")
 
+	if to.len() == 0 {
+		return
+	}
+
 	if to.len() == 1 {
 		to.begin = nil
 	} else {
@@ -57,6 +61,10 @@ func (to *List) removeFirstPerson() {
 
 func (to *List) removeLastPerson() {
 	fmt.Printf("\n\nRemoving last person from queue...\nDONE!\n\n")
+
+	if to.len() == 0 {
+		return
+	}
 
 	if to.len() == 1 {
 		to.begin = nil
@@ -77,7 +85,6 @@ type ListNode struct {
 func main() {
 
 	queue := List{}
-
 	// Добавление 5 человек
 	person := ListNode{
 		Prev:      nil,
